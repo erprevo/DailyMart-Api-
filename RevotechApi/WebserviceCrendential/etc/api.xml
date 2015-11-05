@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<config>
+	<api>
+		<resources>
+			<myresource>
+				<model>my_module_prefix/api</model>
+				<title>RevotechApi Custom API</title>
+				<acl>my_api_acl_resource</acl>
+				<methods>
+					<myfunctionA translate="title" module="my_module_prefix">
+						<title>Do stuff</title>
+
+						<!-- optional -->
+						<method>my_method_name</method>
+						<acl>my_api_acl_resource/call_my_function</acl>
+                                                
+					</myfunctionA>
+				</methods>
+			</myresource>
+		</resources>
+
+		<v2>
+			<resources_function_prefix>
+				<myresource>apiprefix_myresource</myresource>
+			</resources_function_prefix>
+		</v2>
+
+		<acl>
+			<resources>
+				<my_api_acl_resource translate="title" module="my_module_prefix">
+					<title>My API Resource</title>
+					<call_my_function translate="title" module="core">
+						<title>Allowed to call my function</title>
+					</call_my_function>
+				</my_api_acl_resource>
+			</resources>
+		</acl>
+	</api>
+</config>

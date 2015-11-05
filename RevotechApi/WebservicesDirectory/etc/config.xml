@@ -1,0 +1,49 @@
+<?xml version="1.0"?>
+<config>
+  <modules>
+        <RevotechApi_WebservicesDirectory>
+            <version>0.0.1</version>
+        </RevotechApi_WebservicesDirectory>
+    </modules>
+    <global>
+        <models>
+            <directory>
+                <rewrite>
+                  <region_api_v2>RevotechApi_WebservicesDirectory_Model_Directory_Region_Api_V2</region_api_v2>
+                </rewrite>
+            </directory>
+            
+                        
+        </models>
+		
+		     <helpers>
+            <WebservicesDirectory>
+                <class>RevotechApi_WebservicesDirectory_Helper</class>
+            </WebservicesDirectory>
+        </helpers>
+    </global>
+	<adminhtml>
+    <acl>
+        <resources>
+            <all>
+                <title>Allow Everything</title>
+            </all>
+            <admin>
+                <children>
+                    <system>
+                        <children>
+                            <config>
+                                <children>
+                                    <WebservicesDirectory>
+                                        <title>Inchoo - All</title>
+                                    </WebservicesDirectory>
+                                </children>
+                            </config>
+                        </children>
+                    </system>
+                </children>
+            </admin>
+        </resources>
+    </acl>
+</adminhtml>
+</config>

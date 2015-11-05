@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns:typens="urn:{{var wsdl.name}}" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+             xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns="http://schemas.xmlsoap.org/wsdl/"
+             name="{{var wsdl.name}}" targetNamespace="urn:{{var wsdl.name}}" xmlns:ns0="urn:Magento">
+    <types>
+        <schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="urn:Magento">
+            <import namespace="http://schemas.xmlsoap.org/soap/encoding/" schemaLocation="http://schemas.xmlsoap.org/soap/encoding/"/>
+            <complexType name="apiprefix_myDataEntity">
+                <all>
+                   
+                 <element name="customer_id" type="xsd:int" minOccurs="0" />
+ <element name="success" type="xsd:string" minOccurs="0" />
+ <element name="customerobject" type="typens:customerCustomerEntity" minOccurs="0" />
+                    
+                </all>
+            </complexType>
+            <!--complexType name="apiprefix_myDataEntityArray">
+                <complexContent>
+                    <restriction base="soapenc:Array">
+                        <attribute ref="soapenc:arrayType" wsdl:arrayType="typens:apiprefix_myDataEntity[]" />
+                    </restriction>
+                </complexContent>
+            </complexType -->
+          
+        </schema>
+    </types>
+
+    <message name="apiprefix_myresourceMyfunctionARequest">
+        <part name="sessionId" type="xsd:string" />
+        <part name="shopperId" type="xsd:string" />
+        <part name="oldpassword" type="xsd:string" />
+        <part name="newpassword" type="xsd:string" />
+        
+         <!--part name="customerData" type="typens:associativeArray"/-->
+       
+    </message>
+    <message name="apiprefix_myresourceMyfunctionAResponse">
+        <part name="result" type="typens:apiprefix_myDataEntity" />
+    </message>
+
+    <portType name="{{var wsdl.handler}}PortType">
+        <operation name="apiprefix_myresourceMyfunctionA">
+            <documentation>Do stuff</documentation>
+            <input message="typens:apiprefix_myresourceMyfunctionARequest" />
+            <output message="typens:apiprefix_myresourceMyfunctionAResponse" />
+        </operation>
+    </portType>
+
+    <binding name="{{var wsdl.handler}}Binding" type="typens:{{var wsdl.handler}}PortType">
+        <soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http" />
+        <operation name="apiprefix_myresourceMyfunctionA">
+            <soap:operation soapAction="urn:{{var wsdl.handler}}Action" />
+            <input>
+                <soap:body namespace="urn:{{var wsdl.name}}" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+            </input>
+            <output>
+                <soap:body namespace="urn:{{var wsdl.name}}" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+            </output>
+        </operation>
+    </binding>
+     <service name="{{var wsdl.name}}Service">
+ <port name="{{var wsdl.handler}}Port" binding="typens:{{var wsdl.handler}}Binding">
+ <soap:address location="{{var wsdl.url}}" />
+ </port>
+ </service>
+ 
+</definitions>

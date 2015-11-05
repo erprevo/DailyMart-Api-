@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+<config>
+  <modules>
+        <RevotechApi_WebservicesCatalog>
+            <version>0.0.1</version>
+        </RevotechApi_WebservicesCatalog>
+    </modules>
+    <global>
+        <models>      
+            
+                <catalog>
+                <rewrite>
+                  <product_api_v2>RevotechApi_WebservicesCatalog_Model_Catalog_Product_Api_V2</product_api_v2>
+                   <product_link_api_v2>RevotechApi_WebservicesCatalog_Model_Catalog_Product_Link_Api_V2</product_link_api_v2>
+                  <category_api_v2>RevotechApi_WebservicesCatalog_Model_Category_Api_V2</category_api_v2>
+                </rewrite>
+            </catalog>
+            
+        </models>
+		
+		     <helpers>
+            <WebservicesCatalog>
+                <class>RevotechApi_WebservicesCatalog_Helper</class>
+            </WebservicesCatalog>
+        </helpers>
+    </global>
+	<adminhtml>
+    <acl>
+        <resources>
+            <all>
+                <title>Allow Everything</title>
+            </all>
+            <admin>
+                <children>
+                    <system>
+                        <children>
+                            <config>
+                                <children>
+                                    <WebservicesCatalog>
+                                        <title>Inchoo - All</title>
+                                    </WebservicesCatalog>
+                                </children>
+                            </config>
+                        </children>
+                    </system>
+                </children>
+            </admin>
+        </resources>
+    </acl>
+</adminhtml>
+</config>
