@@ -6,4 +6,5 @@
             <codePool>local</codePool>
         </RevotechApi_WebservicesCatalog>
     </modules>
+	<!-- here additional comment-->
 </config>
