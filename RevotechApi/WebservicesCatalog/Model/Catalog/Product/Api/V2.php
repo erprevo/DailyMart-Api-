@@ -2,6 +2,10 @@
 
 class RevotechApi_WebservicesCatalog_Model_Catalog_Product_Api_V2 extends Mage_Catalog_Model_Product_Api_V2 {
 
+public function getallkmh()
+{
+//fdksljfkds
+}
     public function items($filters = null, $store = null) {
         $collection = Mage::getModel('catalog/product')->getCollection()
                 ->addStoreFilter($this->_getStoreId($store))
